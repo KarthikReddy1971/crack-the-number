@@ -1,4 +1,4 @@
-````markdown
+
 # 🎯 Crack The Number
 
 A modern interactive number-guessing game built with **React, TypeScript, Vite, and Tailwind CSS**.
