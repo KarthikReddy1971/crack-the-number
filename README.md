@@ -1,7 +1,3 @@
-Yes bro — the previous one was **too long and README-like**. For GitHub, we want **short, clean, professional, and only important information**.
-
-Use this instead:
-
 ````markdown
 # 🎯 Crack The Number
 
@@ -34,6 +30,11 @@ Guess the secret number before your 10 attempts run out. Use smart hints, track 
 - **Tailwind CSS** — responsive styling
 - **CSS** — custom animations & effects
 - **Git & GitHub** — version control
+## ScreenShots
+#dashboard
+<img width="959" height="415" alt="image" src="https://github.com/user-attachments/assets/9f4f1389-8ea3-434b-bd8a-8b684d67fe1a" />
+# In_Game
+<img width="959" height="414" alt="image" src="https://github.com/user-attachments/assets/5aff47c5-27db-4bee-89d5-27a1ebee5213" />
 
 ## 🧠 What I Learned
 
@@ -90,7 +91,7 @@ Crack the Number 🎯
 ## 👨‍💻 Developer
 
 **Karthik Reddy** / **KarthikReddy1971**
-
+🔗[Live Demo](https://crack-numberr.netlify.app/)
 🔗 [Portfolio](https://karthikkportofolio.netlify.app/)
 🔗 [LinkedIn](https://www.linkedin.com/in/karthik-reddy-buthukuri-25678328/)
 🔗 [GitHub](https://github.com/KarthikReddy1971)
