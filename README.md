@@ -30,11 +30,15 @@ Guess the secret number before your 10 attempts run out. Use smart hints, track 
 - **Tailwind CSS** — responsive styling
 - **CSS** — custom animations & effects
 - **Git & GitHub** — version control
-## ScreenShots
-#dashboard
-<img width="959" height="415" alt="image" src="https://github.com/user-attachments/assets/9f4f1389-8ea3-434b-bd8a-8b684d67fe1a" />
-# In_Game
-<img width="959" height="414" alt="image" src="https://github.com/user-attachments/assets/5aff47c5-27db-4bee-89d5-27a1ebee5213" />
+## 📸 Screenshots
+
+### 🏠 Dashboard
+
+![Crack The Number - Dashboard](https://github.com/user-attachments/assets/9f4f1389-8ea3-434b-bd8a-8b684d67fe1a)
+
+### 🎮 In-Game
+
+![Crack The Number - In Game](https://github.com/user-attachments/assets/5aff47c5-27db-4bee-89d5-27a1ebee5213)
 
 ## 🧠 What I Learned
 
