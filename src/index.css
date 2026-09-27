@@ -1,0 +1,950 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  color: white;
+  background: #020617;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #020617;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* =====================================================
+   MAIN BACKGROUND
+===================================================== */
+
+.game-background {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(59, 130, 246, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 0% 50%,
+      rgba(14, 165, 233, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 50%,
+      rgba(168, 85, 247, 0.14),
+      transparent 30%
+    ),
+    #020617;
+}
+
+/* Animated Grid */
+
+.game-background::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+
+  animation: gridMove 18s linear infinite;
+
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(60px);
+  }
+}
+
+/* =====================================================
+   GLOW ORBS
+===================================================== */
+
+.glow-orb {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  pointer-events: none;
+
+  animation: orbFloat 9s ease-in-out infinite;
+}
+
+.glow-orb-one {
+  width: 280px;
+  height: 280px;
+
+  left: -120px;
+  top: 5%;
+
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.glow-orb-two {
+  width: 320px;
+  height: 320px;
+
+  right: -150px;
+  top: 30%;
+
+  background: rgba(147, 51, 234, 0.14);
+
+  animation-delay: -3s;
+}
+
+.glow-orb-three {
+  width: 250px;
+  height: 250px;
+
+  left: 40%;
+  bottom: -150px;
+
+  background: rgba(6, 182, 212, 0.12);
+
+  animation-delay: -6s;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(35px, -35px, 0) scale(1.08);
+  }
+}
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.particle {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.5),
+    0 0 18px rgba(59, 130, 246, 0.4);
+
+  pointer-events: none;
+
+  animation:
+    particleFloat 6s ease-in-out infinite,
+    particleBlink 3s ease-in-out infinite;
+}
+
+.particle-one {
+  top: 15%;
+  left: 12%;
+}
+
+.particle-two {
+  top: 25%;
+  right: 15%;
+  animation-delay: -1s;
+}
+
+.particle-three {
+  top: 60%;
+  left: 8%;
+  animation-delay: -2s;
+}
+
+.particle-four {
+  top: 72%;
+  right: 10%;
+  animation-delay: -3s;
+}
+
+.particle-five {
+  top: 42%;
+  left: 52%;
+  animation-delay: -4s;
+}
+
+@keyframes particleFloat {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-30px) translateX(12px);
+  }
+}
+
+@keyframes particleBlink {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   TARGET ANIMATION
+===================================================== */
+
+.target-animation {
+  display: inline-block;
+
+  font-size: 3.5rem;
+
+  filter:
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.25))
+    drop-shadow(0 0 25px rgba(59, 130, 246, 0.25));
+
+  animation:
+    targetFloat 3s ease-in-out infinite,
+    targetGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes targetFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes targetGlow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 255, 255, 0.2))
+      drop-shadow(0 0 20px rgba(59, 130, 246, 0.2));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))
+      drop-shadow(0 0 35px rgba(59, 130, 246, 0.4));
+  }
+}
+
+/* =====================================================
+   STAT CARDS
+===================================================== */
+
+.stat-card {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(148, 163, 184, 0.35);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(59, 130, 246, 0.06);
+}
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.game-card-animation {
+  position: relative;
+
+  animation:
+    cardEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.game-card-animation::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(59, 130, 246, 0.15),
+      transparent,
+      rgba(168, 85, 247, 0.12),
+      transparent
+    );
+
+  background-size: 300% 300%;
+
+  animation: borderFlow 8s linear infinite;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(35px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =====================================================
+   FEEDBACK
+===================================================== */
+
+.feedback-animation {
+  animation:
+    feedbackPop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes feedbackPop {
+  0% {
+    opacity: 0;
+
+    transform:
+      scale(0.94)
+      translateY(8px);
+  }
+
+  60% {
+    transform:
+      scale(1.02)
+      translateY(-2px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.glow-button {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.glow-button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+.glow-button:hover::before {
+  left: 130%;
+}
+
+.glow-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 25px rgba(255, 255, 255, 0.08),
+    0 0 30px rgba(59, 130, 246, 0.08);
+}
+
+.glow-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+input {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+input:hover {
+  border-color: rgba(148, 163, 184, 0.7) !important;
+}
+
+input:focus {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.04),
+    0 0 25px rgba(59, 130, 246, 0.12);
+}
+
+/* Remove number arrows */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-animation {
+  position: relative;
+
+  transition:
+    width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+.progress-animation::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 50px;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.4);
+
+  filter: blur(8px);
+}
+
+/* =====================================================
+   WIN SCREEN
+===================================================== */
+
+.win-animation {
+  animation:
+    winEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes winEnter {
+  0% {
+    opacity: 0;
+
+    transform: scale(0.7);
+  }
+
+  60% {
+    opacity: 1;
+
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Trophy */
+
+.win-animation > div > .text-7xl {
+  display: inline-block;
+
+  animation:
+    trophyBounce 1.2s ease-in-out infinite;
+}
+
+@keyframes trophyBounce {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(0);
+  }
+
+  50% {
+    transform:
+      translateY(-10px)
+      rotate(4deg);
+  }
+}
+
+/* =====================================================
+   🎈 BALLOON BOOM
+===================================================== */
+
+.balloon-burst {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+.balloon {
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  display: block;
+
+  font-size: 2.5rem;
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.2);
+
+  animation:
+    balloonBoom 2.8s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+/* Balloon directions */
+
+.balloon-1 {
+  --x: -280px;
+  --y: -180px;
+  animation-delay: 0s;
+}
+
+.balloon-2 {
+  --x: -190px;
+  --y: -260px;
+  animation-delay: 0.03s;
+}
+
+.balloon-3 {
+  --x: -80px;
+  --y: -300px;
+  animation-delay: 0.06s;
+}
+
+.balloon-4 {
+  --x: 60px;
+  --y: -280px;
+  animation-delay: 0.09s;
+}
+
+.balloon-5 {
+  --x: 180px;
+  --y: -240px;
+  animation-delay: 0.12s;
+}
+
+.balloon-6 {
+  --x: 280px;
+  --y: -150px;
+  animation-delay: 0.15s;
+}
+
+.balloon-7 {
+  --x: -300px;
+  --y: 40px;
+  animation-delay: 0.08s;
+}
+
+.balloon-8 {
+  --x: 300px;
+  --y: 30px;
+  animation-delay: 0.11s;
+}
+
+.balloon-9 {
+  --x: -230px;
+  --y: 180px;
+  animation-delay: 0.14s;
+}
+
+.balloon-10 {
+  --x: -100px;
+  --y: 240px;
+  animation-delay: 0.17s;
+}
+
+.balloon-11 {
+  --x: 120px;
+  --y: 230px;
+  animation-delay: 0.2s;
+}
+
+.balloon-12 {
+  --x: 240px;
+  --y: 170px;
+  animation-delay: 0.23s;
+}
+
+@keyframes balloonBoom {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.1);
+  }
+
+  10% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.3);
+  }
+
+  35% {
+    opacity: 1;
+
+    transform:
+      translate(
+        calc(-50% + var(--x) * 0.45),
+        calc(-50% + var(--y) * 0.45)
+      )
+      rotate(-8deg)
+      scale(1.1);
+  }
+
+  70% {
+    opacity: 1;
+
+    transform:
+      translate(
+        calc(-50% + var(--x) * 0.8),
+        calc(-50% + var(--y) * 0.8)
+      )
+      rotate(8deg)
+      scale(0.95);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+      )
+      rotate(15deg)
+      scale(0.7);
+  }
+}
+
+/* Celebration spark */
+
+.win-animation::after {
+  content: "✨  🎉  ✨  🎊  ✨";
+
+  position: absolute;
+
+  left: 50%;
+  top: 42%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-size: 2rem;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  animation:
+    celebrationSpark 1.5s ease-out 0.15s
+    forwards;
+}
+
+@keyframes celebrationSpark {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.2);
+  }
+
+  30% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.4);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(2.2);
+  }
+}
+
+/* =====================================================
+   GAME OVER
+===================================================== */
+
+.game-over-animation {
+  animation:
+    gameOverEnter 0.7s ease-out;
+}
+
+@keyframes gameOverEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+.game-over-animation > div:first-child {
+  display: inline-block;
+
+  animation:
+    skullPulse 2s ease-in-out infinite;
+}
+
+@keyframes skullPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 640px) {
+  .game-background::before {
+    background-size: 40px 40px;
+  }
+
+  .glow-orb {
+    filter: blur(65px);
+  }
+
+  .glow-orb-one {
+    width: 170px;
+    height: 170px;
+  }
+
+  .glow-orb-two {
+    width: 190px;
+    height: 190px;
+  }
+
+  .glow-orb-three {
+    width: 150px;
+    height: 150px;
+  }
+
+  .target-animation {
+    font-size: 3rem;
+  }
+
+  .balloon {
+    font-size: 2rem;
+  }
+
+  .balloon-1 {
+    --x: -140px;
+    --y: -150px;
+  }
+
+  .balloon-2 {
+    --x: -100px;
+    --y: -210px;
+  }
+
+  .balloon-3 {
+    --x: -40px;
+    --y: -230px;
+  }
+
+  .balloon-4 {
+    --x: 50px;
+    --y: -220px;
+  }
+
+  .balloon-5 {
+    --x: 110px;
+    --y: -180px;
+  }
+
+  .balloon-6 {
+    --x: 150px;
+    --y: -120px;
+  }
+
+  .balloon-7 {
+    --x: -160px;
+    --y: 30px;
+  }
+
+  .balloon-8 {
+    --x: 160px;
+    --y: 30px;
+  }
+
+  .balloon-9 {
+    --x: -130px;
+    --y: 140px;
+  }
+
+  .balloon-10 {
+    --x: -60px;
+    --y: 180px;
+  }
+
+  .balloon-11 {
+    --x: 70px;
+    --y: 170px;
+  }
+
+  .balloon-12 {
+    --x: 130px;
+    --y: 130px;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
