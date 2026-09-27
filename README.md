@@ -7,7 +7,7 @@ Guess the secret number before your 10 attempts run out. Use smart hints, track 
 
 ## 🚀 Live Demo
 
-👉 Add your deployed link here
+👉 https://crack-numberr.netlify.app/
 
 ## ✨ Features
 
